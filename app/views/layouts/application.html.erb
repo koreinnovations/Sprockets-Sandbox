@@ -2,13 +2,39 @@
 <html>
 <head>
   <title>AssetTest</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "application", controller_name %>
+  <%= javascript_include_tag "application", controller_name %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+<ul>
+  <li> <%=  controller.class.name %>
+  </li>
+  <li>Controller: <%=  controller_name %></li>
+  <li>Action: <%=  action_name %></li>
+</ul>
+
+
+<hr />
+
 <%= yield %>
+
+<textarea id="debug" disabled></textarea>
+<hr />
+
+<nav>
+  <% @nav.each do |key, subset| %>
+  <h3><%=  key %></h3>
+      <ul>
+         <% subset.each do |action, label| %>
+           <li>
+             <%= link_to label, action %>
+           </li>
+        <% end %>
+      </ul>
+  <% end %>
+</nav>
 
 </body>
 </html>

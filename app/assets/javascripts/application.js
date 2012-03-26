@@ -6,6 +6,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./common/.
 
-alert("application")
+function debug(msg) {
+    $('#debug').get(0).value += "\n" + msg;
+}
+
+$(document).ready(function(){
+  debug("application");
+});

@@ -1,4 +1,6 @@
 AssetTest::Application.routes.draw do
+  get "members/admin/index"
+
   get "forum/index"
 
   get "forum/post"
